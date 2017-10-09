@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
-
-class Todo {
-  description: string;
-  done: boolean;
-}
+import { Todo } from '../../shared/Todo';
 
 @Component({
   selector: 'page-home',
@@ -14,7 +10,7 @@ export class HomePage implements OnInit {
 
   newTodo: string;
 
-  filteredTodos: Todo[] = [];
+  done: boolean;
 
   todos: Todo[] = [
     {
@@ -43,15 +39,15 @@ export class HomePage implements OnInit {
   }
 
   showDone() {
-    this.filteredTodos = this.todos.filter(t => t.done === true);
+    this.done = true;
   }
 
   showPending() {
-    this.filteredTodos = this.todos.filter(t => t.done === false);
+    this.done = false; 
   }
 
   showAll() {
-    this.filteredTodos = this.todos;
+    this.done = null;
   }
 
 }

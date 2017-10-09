@@ -21,7 +21,7 @@
       <button ion-button color="danger" (click)="showPending()">Pending</button>
       <button ion-button color="dark" (click)="showAll()">All</button>
     </div>
-    <ion-item *ngFor="let todo of filteredTodos">
+    <ion-item *ngFor="let todo of (todos | filteredTodos:done)">
       <ion-label>{{todo.description}}</ion-label>
       <ion-checkbox [(ngModel)]="todo.done"></ion-checkbox>
     </ion-item>
