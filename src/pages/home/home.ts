@@ -8,7 +8,7 @@ import { Todo } from '../../shared/Todo';
 })
 export class HomePage implements OnInit {
 
-  newTodo: string;
+  newTodo: string = null;
 
   done: boolean;
 
@@ -33,8 +33,9 @@ export class HomePage implements OnInit {
     this.showAll();
   }
 
-  addTodo() {
-    this.todos.push({ description: this.newTodo, done: false});
+  addTodo(todo: string) {
+    if (todo === null) return;
+    this.todos.push({ description: todo, done: false});
     this.newTodo = null;
   }
 
@@ -43,7 +44,7 @@ export class HomePage implements OnInit {
   }
 
   showPending() {
-    this.done = false; 
+    this.done = false;
   }
 
   showAll() {
