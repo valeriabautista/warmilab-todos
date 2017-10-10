@@ -17,10 +17,15 @@
       <button ion-button color="primary" block (click)="addTodo(newTodo)">Add</button>
     </div>
     <div padding>
-      <button ion-button color="secondary" (click)="showDone()">Done</button>
-      <button ion-button color="danger" (click)="showPending()">Pending</button>
-      <button ion-button color="dark" (click)="showAll()">All</button>
+      <button ion-button color="secondary" [ngClass]="buttonClass('done')" (click)="showDone()">Done</button>
+      <button ion-button color="danger" [ngClass]="buttonClass('pending')" (click)="showPending()">Pending</button>
+      <button ion-button color="dark" [ngClass]="buttonClass('all')" (click)="showAll()">All</button>
     </div>
+    <ion-card *ngIf="(todos | filteredTodos:done).length === 0">
+      <ion-card-content class="card-danger">
+        No todos to show
+      </ion-card-content>
+    </ion-card>
     <ion-item *ngFor="let todo of (todos | filteredTodos:done)">
       <ion-label>{{todo.description}}</ion-label>
       <ion-checkbox [(ngModel)]="todo.done"></ion-checkbox>

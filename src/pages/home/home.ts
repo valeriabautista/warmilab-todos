@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Todo } from '../../shared/Todo';
+import { TodoService } from '../../shared/todo.service';
 
 @Component({
   selector: 'page-home',
@@ -12,43 +13,64 @@ export class HomePage implements OnInit {
 
   done: boolean;
 
-  todos: Todo[] = [
+  todos: Todo[] = [];
+
+  buttons = [
     {
-      description: 'learn ionic',
-      done: false
+      type: 'done',
+      class: ''
     }, {
-      description: 'perform poc',
-      done: true
+      type: 'pending',
+      class: ''
     }, {
-      description: 'go to sleep',
-      done: false
+      type: 'all',
+      class: 'button-large-md'
     }
   ];
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, private todoService: TodoService) {
 
   }
 
   ngOnInit() {
+    this.todos = this.todoService.getTodos();
     this.showAll();
   }
 
   addTodo(todo: string) {
     if (todo === null) return;
-    this.todos.push({ description: todo, done: false});
+    this.todos = this.todoService.addTodo(todo);
     this.newTodo = null;
   }
 
   showDone() {
     this.done = true;
+    this.buttons = this.remapButtons('done');
   }
 
   showPending() {
     this.done = false;
+    this.buttons = this.remapButtons('pending');
   }
 
   showAll() {
     this.done = null;
+    this.buttons = this.remapButtons('all');
+  }
+
+  private remapButtons(type: string) {
+    return this.buttons.map(b => {
+      if (b.type === type) {
+        b.class = 'button-large-md';
+      } else {
+        b.class = '';
+      }
+      return b;
+    });
+  }
+
+  buttonClass(type: string) {
+    return this.buttons.filter(b => b.type === type)[0].class;
   }
 
 }
