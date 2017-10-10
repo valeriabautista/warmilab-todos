@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { Observable }        from 'rxjs/Observable';
+
 import { Todo } from '../../shared/Todo';
 import { TodoService } from '../../shared/todo.service';
 
@@ -13,7 +15,7 @@ export class HomePage implements OnInit {
 
   done: boolean;
 
-  todos: Todo[] = [];
+  todos: Observable<Todo[]>;
 
   buttons = [
     {
@@ -28,9 +30,9 @@ export class HomePage implements OnInit {
     }
   ];
 
-  constructor(public navCtrl: NavController, private todoService: TodoService) {
-
-  }
+  constructor(
+    public navCtrl: NavController,
+    private todoService: TodoService) {}
 
   ngOnInit() {
     this.todos = this.todoService.getTodos();
@@ -39,8 +41,12 @@ export class HomePage implements OnInit {
 
   addTodo(todo: string) {
     if (todo === null) return;
-    this.todos = this.todoService.addTodo(todo);
+    this.todoService.addTodo(todo).then(r => console.log(r));
     this.newTodo = null;
+  }
+
+  updateTodo(todo: Todo) {
+    this.todoService.updateTodo(todo);
   }
 
   showDone() {

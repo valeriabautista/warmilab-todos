@@ -1,30 +1,32 @@
 import { Injectable } from '@angular/core';
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import { Observable } from 'rxjs/Observable';
 
 import { Todo } from './Todo';
 
 @Injectable()
 export class TodoService {
 
-  todos: Todo[] = [
-    {
-      description: 'learn ionic',
-      done: false
-    }, {
-      description: 'perform poc',
-      done: true
-    }, {
-      description: 'go to sleep',
-      done: false
-    }
-  ];
+  todosRef: AngularFireList<Todo>;
+  todos: Observable<Todo[]>;
 
-  constructor() {}
+  constructor(public db: AngularFireDatabase) {
+    this.todosRef = db.list('todos');
+    this.todos = this.todosRef.snapshotChanges().map(changes => {
+      return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
+    });
+  }
 
-  getTodos(): Todo[] {
+  getTodos(): Observable<Todo[]> {
     return this.todos;
   }
 
-  addTodo(description: string): Todo[] {
-    return this.todos.concat([{description: description, done: false}]);
+  addTodo(description: string) {
+    return this.todosRef.push({description: description, done: false});
   }
+
+  updateTodo(todo: Todo) {
+    this.todosRef.update(todo.key, { done: todo.done });
+  }
+
 }
