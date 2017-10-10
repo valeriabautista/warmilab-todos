@@ -25,8 +25,8 @@ export class TodoService {
     return this.todosRef.push({description: description, done: false});
   }
 
-  updateTodo(todo: Todo) {
-    this.todosRef.update(todo.key, { done: todo.done });
+  updateTodo(key: string, todo: Todo) {
+    this.todosRef.update(key, { description: todo.description, done : todo.done});
   }
 
 }
