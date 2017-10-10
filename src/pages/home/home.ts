@@ -41,7 +41,7 @@ export class HomePage implements OnInit {
 
   addTodo(todo: string) {
     if (todo === null) return;
-    this.todoService.addTodo(todo).then(r => console.log(r));
+    this.todoService.addTodo(todo);
     this.newTodo = null;
   }
 
