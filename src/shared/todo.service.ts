@@ -22,7 +22,7 @@ export class TodoService {
   }
 
   addTodo(description: string) {
-    return this.todosRef.push({description: description, done: false});
+    this.todosRef.push({description: description, done: false});
   }
 
   updateTodo(key: string, todo: Todo) {
