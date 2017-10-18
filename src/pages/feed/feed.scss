@@ -1,0 +1,8 @@
+page-feed {
+  .light {
+    background: color($colors, light);
+  }
+  .new-comment {
+    border-top: 2px solid color($colors, gray);
+  }
+}

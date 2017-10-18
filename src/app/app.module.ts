@@ -9,6 +9,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 import { AboutPage } from '../pages/about/about';
 import { HomePage } from '../pages/home/home';
+import { FeedPage } from '../pages/feed/feed';
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -22,6 +23,7 @@ import { TodoService } from '../shared/todo.service';
     MyApp,
     AboutPage,
     HomePage,
+    FeedPage,
     TabsPage,
     FilteredTodos
   ],
@@ -36,6 +38,7 @@ import { TodoService } from '../shared/todo.service';
     MyApp,
     AboutPage,
     HomePage,
+    FeedPage,
     TabsPage
   ],
   providers: [

@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Feed
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="light">
+  <ion-card>
+
+    <ion-item>
+      <ion-avatar item-start>
+        <img [src]="avatar">
+      </ion-avatar>
+      <h2>{{nombre}}</h2>
+      <p>{{fechaNacimiento}}</p>
+      <button ion-button icon-only clear item-end>
+        <ion-icon name="share"></ion-icon>
+      </button>
+    </ion-item>
+
+    <img [src]="background">
+
+    <ion-card-content>
+      <p>{{descripcion}}</p>
+    </ion-card-content>
+
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-left clear small>
+          <ion-icon name="heart" color="danger"></ion-icon>
+          <div>12 Likes</div>
+        </button>
+      </ion-col>
+      <ion-col text-right>
+        <button ion-button icon-left clear small>
+          <ion-icon name="text"></ion-icon>
+          <div>4 Comentarios</div>
+        </button>
+      </ion-col>
+    </ion-row>
+    <ion-list>
+      <ion-item>
+        <ion-avatar item-start>
+          <img [src]="avatar">
+        </ion-avatar>
+        <p>
+          buena cleta
+        </p>
+      </ion-item>
+      <ion-item>
+        <ion-avatar item-start>
+          <img [src]="avatar">
+        </ion-avatar>
+        <p>
+          cuando vamos al cerro?
+        </p>
+      </ion-item>
+      <button ion-button clear float-end>mas...</button>
+    </ion-list>
+    <ion-item class="new-comment">
+      <ion-label floating>comentario...</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <button ion-button color="primary" item-end>agregar</button>
+    </ion-item>
+
+  </ion-card>
+
+</ion-content>

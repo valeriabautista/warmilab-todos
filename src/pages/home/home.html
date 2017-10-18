@@ -1,29 +1,26 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-title>Todos</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-list-header>
-      TODOs
-    </ion-list-header>
+  <ion-list>    
     <ion-item>
-      <ion-label floating>new</ion-label>
+      <ion-label floating>nuevo</ion-label>
       <ion-input type="text" [(ngModel)]="newTodo" name="newTodo" required></ion-input>
     </ion-item>
     <div padding>
-      <button ion-button color="primary" block (click)="addTodo(newTodo)">Add</button>
+      <button ion-button color="primary" block (click)="addTodo(newTodo)">agregar</button>
     </div>
     <div padding>
-      <button ion-button color="secondary" [ngClass]="buttonClass('done')" (click)="showDone()">Done</button>
-      <button ion-button color="danger" [ngClass]="buttonClass('pending')" (click)="showPending()">Pending</button>
-      <button ion-button color="dark" [ngClass]="buttonClass('all')" (click)="showAll()">All</button>
+      <button ion-button color="secondary" [ngClass]="buttonClass('done')" (click)="showDone()">terminados</button>
+      <button ion-button color="danger" [ngClass]="buttonClass('pending')" (click)="showPending()">pendientes</button>
+      <button ion-button color="dark" [ngClass]="buttonClass('all')" (click)="showAll()">todos</button>
     </div>
     <ion-card *ngIf="(todos | async | filteredTodos:done).length === 0">
       <ion-card-content class="card-danger">
-        No todos to show
+        No hay TODOs
       </ion-card-content>
     </ion-card>
     <ion-item *ngFor="let todo of (todos | async | filteredTodos:done)">

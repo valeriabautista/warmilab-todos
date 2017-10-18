@@ -6,40 +6,64 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-card>
-    <ion-item>
-      <ion-avatar item-start>
-        <img src="assets/img/alex-profile-pic.png">
-      </ion-avatar>
-      <h2>Alex Wong</h2>
-      <p>May 18, 1989</p>
-    </ion-item>
-
-    <img src="assets/img/alex-profile-background.png">
-    <ion-card-content>
-      <p>Hi, it's me Alex.</p>
-    </ion-card-content>
-
-    <ion-row>
-      <ion-col>
-        <button ion-button icon-left clear small>
-          <ion-icon name="thumbs-up"></ion-icon>
-          <div>12 Likes</div>
+<ion-content no-padding>
+  <div class="banner">
+    <img src="assets/img/alex-profile-background.png" class="background">
+    <img src="assets/img/alex-profile-pic.png" class="avatar">
+  </div>
+  <div text-center class="headline">
+    <h2>Alex Wong</h2>
+    <ion-note>
+      Software Developer
+    </ion-note>
+  </div>
+  <ion-slides pager>
+    <ion-slide>
+      <ion-list no-lines>
+        <ion-item>
+          <ion-icon name="ios-flag-outline" item-start></ion-icon>
+          <h3>Origen</h3>
+          <p>
+            Lima, Peru
+          </p>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="ios-mail-outline" item-start></ion-icon>
+          <h3>E-mail</h3>
+          <p>
+            alwongm@gmail.com
+          </p>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="ios-phone-portrait-outline" item-start></ion-icon>
+          <h3>Telefono</h3>
+          <p>
+            987531800
+          </p>
+        </ion-item>
+      </ion-list>
+    </ion-slide>
+    <ion-slide>
+      <p>
+        Hola, soy Alex y soy software developer.
+      </p>
+    </ion-slide>
+  </ion-slides>
+  <ion-row text-center>
+    <ion-col>
+      <button ion-button icon-only clear>
+          <ion-icon name="logo-facebook"></ion-icon>
         </button>
-      </ion-col>
-      <ion-col>
-        <button ion-button icon-left clear small>
-          <ion-icon name="text"></ion-icon>
-          <div>4 Comments</div>
+    </ion-col>
+    <ion-col>
+      <button ion-button icon-only clear>
+          <ion-icon name="logo-instagram"></ion-icon>
         </button>
-      </ion-col>
-      <ion-col center text-center>
-        <ion-note>
-          11h ago
-        </ion-note>
-      </ion-col>
-    </ion-row>
-
-  </ion-card>
+    </ion-col>
+    <ion-col>
+      <button ion-button icon-only clear>
+          <ion-icon name="logo-twitter"></ion-icon>
+        </button>
+    </ion-col>
+  </ion-row>
 </ion-content>
