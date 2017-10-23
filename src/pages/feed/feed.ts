@@ -7,11 +7,11 @@ import { NavController } from 'ionic-angular';
 })
 export class FeedPage {
 
-  avatar: string = 'assets/img/alex-profile-pic.png';
-  nombre: string = 'Alex Wong';
-  fechaNacimiento: string = 'May 18, 1989';
-  descripcion: string = "Hi, it's me Alex";
-  background: string = 'assets/img/alex-profile-background.png';
+  avatar: string;
+  nombre: string;
+  fechaNacimiento: string;
+  descripcion: string;
+  background: string;
 
   constructor(public navCtrl: NavController) {
 
