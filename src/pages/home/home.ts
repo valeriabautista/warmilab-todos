@@ -46,6 +46,7 @@ export class HomePage implements OnInit {
   }
 
   updateTodo(todo: any) {
+    todo.done = !todo.done;
     this.todoService.updateTodo(todo.key, todo);
   }
 
