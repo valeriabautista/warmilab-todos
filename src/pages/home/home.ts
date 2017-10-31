@@ -11,11 +11,7 @@ import { TodoService } from '../../shared/todo.service';
 })
 export class HomePage implements OnInit {
 
-  newTodo: string = null;
-
-  done: boolean;
-
-  todos: Observable<Todo[]>;
+  todos: Todo[] = [];
 
   buttons = [
     {
@@ -26,7 +22,7 @@ export class HomePage implements OnInit {
       class: ''
     }, {
       type: 'all',
-      class: 'button-large-md'
+      class: ''
     }
   ];
 
@@ -35,34 +31,27 @@ export class HomePage implements OnInit {
     private todoService: TodoService) {}
 
   ngOnInit() {
-    this.todos = this.todoService.getTodos();
-    this.showAll();
+    // codigo al iniciar el componente
   }
 
   addTodo(todo: string) {
-    if (todo === null) return;
-    this.todoService.addTodo(todo);
-    this.newTodo = null;
+    // codigo para agregar TODO
   }
 
   updateTodo(todo: any) {
-    todo.done = !todo.done;
-    this.todoService.updateTodo(todo.key, todo);
+    // codigo para actualizar TODO
   }
 
   showDone() {
-    this.done = true;
-    this.buttons = this.remapButtons('done');
+    // mostrar los TODOs terminados
   }
 
   showPending() {
-    this.done = false;
-    this.buttons = this.remapButtons('pending');
+    // mostrar los TODOs pendientes
   }
 
   showAll() {
-    this.done = null;
-    this.buttons = this.remapButtons('all');
+    // mostrar todos los TODOs
   }
 
   private remapButtons(type: string) {
