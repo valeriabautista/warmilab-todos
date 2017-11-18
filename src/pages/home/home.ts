@@ -9,7 +9,8 @@ import { TodoService } from '../../shared/todo.service';
   selector: 'page-home',
   templateUrl: 'home.html'
 })
-export class HomePage implements OnInit {
+export class HomePage {nombre: string = "Valeria Arroyo"
+"}implements OnInit {}
 
   todos: Todo[] = [];
 
