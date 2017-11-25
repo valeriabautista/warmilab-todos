@@ -23,28 +23,17 @@
     <ion-slides pager>
       <ion-slide>
         <ion-list no-lines>
-      <ion-item>
-        <ion-icon name="flag" item-start></ion-icon>
-        <h3>Origen</h3>
-        <p>
-          {{datos2.origen}}
-        </p>
-      </ion-item>
-      <ion-item>
-        <ion-icon name="ios-mail-outline" item-start></ion-icon>
-        <h3>E-mail</h3>
-        <p>
-          {{datos2.email}}
-        </p>
-      </ion-item>
-      <ion-item>
-        <ion-icon name="ios-phone-portrait-outline" item-start></ion-icon>
-        <h3>Telefono</h3>
-        <p>
-          {{datos2.telefono}}
-        </p>
-      </ion-item>
+          <ion-item *ngFor="let elemento of informacion">
+            <ion-icon [name]="elemento.icono" item-start></ion-icon>
+            <h3>{{elemento.titulo}}</h3>
+            <p>
+              {{elemento.dato}}
+            </p>
+          </ion-item>
         </ion-list>
+      </ion-slide>
+      <ion-slide>
+        Hola, soy valeriaa
       </ion-slide>
     </ion-slides>
   </div>

@@ -9,10 +9,26 @@ import { TodoService } from '../../shared/todo.service';
   selector: 'page-home',
   templateUrl: 'home.html'
 })
-export class HomePage {nombre: string = "Valeria Arroyo"
-"}implements OnInit {}
+export class HomePage implements OnInit {
 
-  todos: Todo[] = [];
+  quehaceres: Todo[] = [
+    {
+      description:"lavar los platos",
+      done:true
+    },
+    {
+      description: "hacer las tareas",
+      done: false
+    },
+{
+  description: "tender la cama",
+  done: true
+},
+{
+  description: "sacar a pasear al perro",
+  done: true
+}
+  ];
 
   buttons = [
     {
