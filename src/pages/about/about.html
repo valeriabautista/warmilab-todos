@@ -31,7 +31,7 @@
           <ion-input type="text" #datoInput></ion-input>
         </ion-item>
 
-    <button ion-button block (click)="agregarDato(tituloInput.value, datoInput.value)">agregar</button>
+        <button ion-button block (click)="agregarDato(tituloInput.value, datoInput.value)">agregar</button>
         <ion-list no-lines>
           <ion-item *ngFor="let elemento of informacion">
             <ion-icon [name]="elemento.icono" item-start></ion-icon>
