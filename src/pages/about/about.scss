@@ -1,17 +1,21 @@
 page-about {
 
   .banner {
-
+position: relative;
     .background {
       opacity: 0.5;
     }
     .avatar {
+      position: absolute;
       border-radius: 50%;
       height: 120px;
+      right: 35%;
+      top:75%;
+
     }
   }
   .headline {
-
+margin-top: 55px
   }
 
   ion-slides {
